@@ -2,6 +2,40 @@
 
 [Source 原文](https://titangene.github.io/article/jest-typescript.html)
 
+
+## 與原文不同
+test 改用了 
+```javascript
+import sum from '@/sum';
+```
+引入 Module
+
+修改了 tsconfig.json
+```json
+{
+    "compilerOptions": {
+        ...
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
+    }
+}
+```
+
+及 jest.config.js
+```js
+module.exports = {
+    ...
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1'
+    }
+}
+
+```
+
+
 TypeScript 是 JavaScript 的 typed superset，提供強大的型別檢查系統，讓你在編譯時期就能即時發現錯誤，而不是到了 runtime 才發生未知的 bug。上次介紹了 [Jest + Babel 的測試環境建置](https://titangene.github.io/article/jest-build-test-env.html)，這次來介紹 Jest + TypeScript 的測試環境建置過程。
 
 其他 Jest 相關文章可參閱 [其代原文作者 Jest 系列文章](https://titangene.github.io/tags/jest/)。

@@ -1,3 +1,20 @@
+# Initial Config
+
+## jest.config
+
+```js
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+module.exports = {
+    coverageDirectory: "coverage",
+    preset: "ts-jest",
+    testEnvironment: "node",
+    testRegex: "(/test/.*|(\\.|/)(test|spec))\\.(tsx?|jsx?)$"
+}
+```
+
+## package.json
+
+```json
 {
   "name": "ts-lib-boilerplate",
   "version": "1.0.0",
@@ -22,3 +39,20 @@
     "typescript": "^4.9.4"
   }
 }
+
+```
+
+## tsconfig.json
+
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "dist",
+        "strict": true,
+        "sourceMap": true,
+        "esModuleInterop": true
+    }
+}
+```
